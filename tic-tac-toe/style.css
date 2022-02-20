@@ -1,0 +1,163 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #4c6986;
+}
+
+.title{
+    max-width: 500px;
+}
+
+.game-wrapper{
+    max-width: 1440px;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+
+}
+
+h1{
+    font-size: 70px;
+    font-weight: bold;
+}
+
+
+.restart{
+    width: 175px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightcyan;
+    border-radius: 50px;
+    border: 2px solid #4c6986;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 20px;
+}
+
+.restart:hover{
+    background-color: #4c6986;
+    border: 2px solid rgb(177, 248, 248) ;
+    color: #fff;
+}
+
+
+
+.game{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 500px;
+}
+
+.header{
+    display: flex;
+    color: #9A9A9A;
+    font-size: 24px;
+}
+
+.header .player-x{
+    flex: 1;
+    border-bottom: 5px solid #eee;
+    padding-bottom: 8px;
+}
+.player-x.active{
+    color: #42BED7;
+    border-color: #42BED7;
+}
+
+.header .player-o{
+    flex: 1;
+    border-bottom: 5px solid #eee;
+    padding-bottom: 8px;
+}
+.player-o.active{
+    color: #D7BED7;
+    border-color: #D7BED7;
+}
+
+.board{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    flex-grow: 1;
+    grid-gap: 0;
+    padding: 10px;
+}
+
+.board-tile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.board-tile:not(:nth-child(3n)){
+    border-right: 3px solid #4c6986;
+}
+
+.board-tile:not(:nth-last-child(-n+3)){
+    border-bottom: 3px solid #4c6986 ;
+}
+
+.board-tile:hover{
+    background-color: lightcyan;
+}
+
+
+.tile-x{
+    color: #42BED7;
+}
+
+.tile-o{
+    color: #D7BED7;
+}
+
+.tile-winner span{
+    color: lightgreen;
+}
+
+
+
+@media(max-width: 1200px){
+    .game-wrapper{
+        flex-direction: column;
+    }
+    .title h1{
+        font-size: 4rem;
+    }
+
+    .left{
+        margin-bottom: 50px;
+        margin-top: 50px;
+    }
+}
+
+@media(max-width: 600px){
+    .game-wrapper{
+        flex-direction: column;
+    }
+
+    .left{
+        margin-bottom: 50px;
+    }
+
+    .title h1{
+        font-size: 3rem;
+    }
+
+    .board{
+        max-width: 400px;
+        max-height: 400px;
+    }
+}
